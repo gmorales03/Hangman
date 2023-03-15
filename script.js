@@ -47,7 +47,7 @@ const displayOptions = () => {
 const blocker = () => {
   let optionsButtons = document.querySelectorAll(".options");
   let letterButtons = document.querySelectorAll(".letters");
-  //disable options
+  //disable all options
   optionsButtons.forEach((button) => {
     button.disabled = true;
   });
@@ -86,12 +86,12 @@ const generateWord = (optionValue) => {
   userInputSection.innerHTML = displayItem;
 };
 
-//Called when page loads/user presses new game
+//Called when page user presses new game
 const initializer = () => {
   winCount = 0;
   count = 0;
 
-  //Initially erase all content and hide letteres and new game button
+  // erase all content and hide letteres and new game button
   userInputSection.innerHTML = "";
   optionsContainer.innerHTML = "";
   letterContainer.classList.add("hide");
@@ -117,7 +117,7 @@ const initializer = () => {
             dashes[index].innerText = char;
             //increment counter
             winCount += 1;
-            //if winCount equals word lenfth
+            //if winCount equals word length
             if (winCount == charArray.length) {
               resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
               //block all buttons
@@ -143,7 +143,7 @@ const initializer = () => {
   }
 
   displayOptions();
-  //Call to canvasCreator 
+  //Call to canvasCreator (for clearing previous canvas and creating initial canvas)
   let { initialDrawing } = canvasCreator();
   //initialDrawing would draw the frame
   initialDrawing();
@@ -203,11 +203,11 @@ const canvasCreator = () => {
     drawLine(70, 10, 70, 20);
   };
 
-  console.log { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
+  return { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
 };
 
 //draw the man
-let drawMan = (count) => {
+const drawMan = (count) => {
   let { head, body, leftArm, rightArm, leftLeg, rightLeg } = canvasCreator();
   switch (count) {
     case 1:
@@ -233,6 +233,9 @@ let drawMan = (count) => {
   }
 };
 
+//New Game
+newGameButton.addEventListener("click", initializer);
+window.onload = initializer;
 
 
 
