@@ -47,7 +47,7 @@ const displayOptions = () => {
 const blocker = () => {
   let optionsButtons = document.querySelectorAll(".options");
   let letterButtons = document.querySelectorAll(".letters");
-  //disable all options
+  //disable options
   optionsButtons.forEach((button) => {
     button.disabled = true;
   });
