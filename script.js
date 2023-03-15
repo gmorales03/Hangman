@@ -86,7 +86,7 @@ const generateWord = (optionValue) => {
   userInputSection.innerHTML = displayItem;
 };
 
-//Initial Function (Called when page loads/user presses new game)
+//Called when page loads/user presses new game
 const initializer = () => {
   winCount = 0;
   count = 0;
@@ -143,7 +143,7 @@ const initializer = () => {
   }
 
   displayOptions();
-  //Call to canvasCreator (for clearing previous canvas and creating initial canvas)
+  //Call to canvasCreator 
   let { initialDrawing } = canvasCreator();
   //initialDrawing would draw the frame
   initialDrawing();
@@ -203,11 +203,11 @@ const canvasCreator = () => {
     drawLine(70, 10, 70, 20);
   };
 
-  return { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
+  console.log { initialDrawing, head, body, leftArm, rightArm, leftLeg, rightLeg };
 };
 
 //draw the man
-const drawMan = (count) => {
+let drawMan = (count) => {
   let { head, body, leftArm, rightArm, leftLeg, rightLeg } = canvasCreator();
   switch (count) {
     case 1:
@@ -233,9 +233,8 @@ const drawMan = (count) => {
   }
 };
 
-//New Game
-newGameButton.addEventListener("click", initializer);
-window.onload = initializer;
+
+
 
 
 
